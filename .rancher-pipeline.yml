@@ -11,18 +11,26 @@ stages:
       buildContext: .
       tag: nginx:v2
       registry: 127.0.0.1:34377
+  when:
+    branch:
+      include:
+      - aa
 - name: test2
   steps:
   - applyYamlConfig:
       path: ./deployment.yaml
   - applyYamlConfig:
       path: ./deployment2.yaml
+  when:
+    branch:
+      include:
+      - aa
 - name: test03
   steps:
   - applyAppConfig:
-      catalogTemplate: cattle-global-data:library-grafana
-      version: 0.0.31
-      name: grafana
-      targetNamespace: grafana
+      catalogTemplate: cattle-global-data:library-mariadb
+      version: 5.0.9
+      name: mariadb
+      targetNamespace: default
 timeout: 60
 notification: {}
