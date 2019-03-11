@@ -6,9 +6,23 @@ stages:
       buildContext: .
       tag: centos_nginx:v1
       registry: 127.0.0.1:34377
+  - publishImageConfig:
+      dockerfilePath: ./Dockerfile
+      buildContext: .
+      tag: nginx:v2
+      registry: 127.0.0.1:34377
 - name: test2
   steps:
   - applyYamlConfig:
       path: ./deployment.yaml
+  - applyYamlConfig:
+      path: ./deployment2.yaml
+- name: test03
+  steps:
+  - applyAppConfig:
+      catalogTemplate: cattle-global-data:library-grafana
+      version: 0.0.31
+      name: grafana
+      targetNamespace: grafana
 timeout: 60
 notification: {}
