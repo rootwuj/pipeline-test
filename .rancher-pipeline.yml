@@ -4,6 +4,10 @@ stages:
   - runScriptConfig:
       image: polinux/stress
       shellScript: stress -m 1 --vm-bytes 2G --vm-keep --timeout 10s
+  when:
+    branch:
+      include:
+      - bb
 - name: test02
   steps:
   - runScriptConfig:
