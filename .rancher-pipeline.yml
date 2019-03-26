@@ -4,6 +4,6 @@ stages:
   - runScriptConfig:
       image: polinux/stress
       shellScript: stress -m 1 --vm-bytes 2G --vm-keep --timeout 10s
+    cpuLimit: 3Gi
     memoryLimit: 3Gi
-    cpuLimit: 1Gi
 notification: {}
