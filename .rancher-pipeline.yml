@@ -2,8 +2,9 @@ stages:
 - name: build
   steps:
   - runScriptConfig:
-      image: polinux/stress
-      shellScript: stress -m 1 --vm-bytes 2G --vm-keep --timeout 10s
-    cpuLimit: 500Mi
-    memoryLimit: 3Gi
-notification: {}
+      image: busybox
+      shellScript: ls
+    cpuLimit: xxx
+    cpuRequest: xxx
+    memoryLimit: xxx
+    memoryRequest: xxx 
