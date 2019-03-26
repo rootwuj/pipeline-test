@@ -4,9 +4,5 @@ stages:
   - runScriptConfig:
       image: busybox
       shellScript: ls
-    cpuLimit: xxx
-    cpuRequest: xxx
-    memoryLimit: xxx
-    memoryRequest: xxx 
 timeout: 60
 notification: {}
